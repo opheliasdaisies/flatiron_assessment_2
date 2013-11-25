@@ -5,12 +5,14 @@ array.each {|name| puts name}
 array[1]
 array.index("Jeff")
 
+
 #2. Hashes
 instructor = {:name=>"Ashley", :age=>27}
 instructor[:location] = "NYC"
 instructor.each{ |key, value| puts "#{key.to_s} is #{value}."}
 instructor[:name]
 instructor.key(27)
+
 
 #3. Nested Structures
 school = { 
@@ -35,7 +37,7 @@ def remove_student(school,name)
 		school[:students].delete(student) if student[:name] == (name)
 	end
 end
-remove_student(school, "Billy")					#if part of a class, could call school.remove_student
+remove_student(school, "Billy")
 
 school[:students].each { |student| student[:semester] = "Summer"}
 
@@ -86,6 +88,7 @@ school.each do |key, value|
 		puts "The school's #{key.to_s} is #{value.to_s}."		
 	end
 end
+
 
 #4. Methods
 school = { 
@@ -147,8 +150,36 @@ end
 new_category(school, :ranking, 1)
 
 
+#5. Object Orientation
+class School
+	attr_accessor :name, :location, :instructors, :students
+	attr_reader :ranking
 
+	SCHOOLS = []
 
+	def reset
+		SCHOOLS.clear
+	end
 
+	def initialize(name, location, ranking, students_array, instructors_array)
+		@name = name
+		@location = location
+		@ranking = ranking
+		@students = students_array
+		@instructors = instructors_array
+		SCHOOLS << self
+	end
 
+	def new_rank(rank)
+		@ranking = rank
+	end
 
+	def new_student(name, grade, semester)
+		students << {:name => name, :grade => grade, :semester => semester}
+	end
+
+	def remove_student(name)
+		students.each { |student| students.delete(student) if student[:name] == name }
+	end
+
+end
