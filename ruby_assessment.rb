@@ -87,8 +87,64 @@ school.each do |key, value|
 	end
 end
 
+#4. Methods
+school = { 
+  :name => "Happy Funtime School",
+  :location => "NYC",
+  :instructors => [ 
+    {:name=>"Blake", :subject=>"being awesome" },
+    {:name=>"Ashley", :subject=>"being better than blake"},
+    {:name=>"Jeff", :subject=>"karaoke"}
+  ],
+  :students => [ 
+    {:name => "Marissa", :grade => "B"},
+    {:name=>"Billy", :grade => "F"},
+    {:name => "Frank", :grade => "A"},
+    {:name => "Sophie", :grade => "C"}
+  ]
+}
 
+def get_grade(school,name)
+	grade = ""
+	school[:students].each do |student|
+		if student[:name] == name
+			grade = student[:grade]
+		end
+	end
+	grade
+end
 
+school.each do |key, value|
+	if value.class == Array
+		puts "The school's #{key.to_s} are:"
+		value.each do |hash|
+			if key == :students
+				puts "#{hash[:name]}: Grade #{get_grade(school, hash[:name])}" 
+			else
+				puts "#{hash[:name]} who teaches #{hash[:subject]}."
+			end
+		end
+	else
+		puts "The school's #{key.to_s} is #{value.to_s}."		
+	end
+end
+
+def new_subject(school, instructor, new_subj)
+	school[:instructors].each do |person|
+		person[:subject] = new_subj if person[:name] == instructor
+	end
+end
+new_subject(school, "Blake", "being terrible")
+
+def new_student(school, student, grade)
+	school[:students] << {:name => student, :grade => grade}
+end
+new_student(school, "Sara", "A")
+
+def new_category(school, category, value)
+	school[category] = value
+end
+new_category(school, :ranking, 1)
 
 
 
