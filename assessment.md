@@ -51,7 +51,7 @@ Questions should be answered with the simplest, most barebone solution possible.
 
   a. Add a element to an array
 
-  b. Write a statement to print out all the elements of the array.
+  b. Write a statement to print out all the elements of the array. This should *not be* just `puts my_hash` but should iterate over the structure printing each value.
 
   c. Return the value at index 1.
 
@@ -59,11 +59,11 @@ Questions should be answered with the simplest, most barebone solution possible.
 
 ###2. Hashes
 
-  `instructor = {:name=>"Ashley", :age=27}`
+  `instructor = {:name=>"Ashley", :age=>27}`
 
   a. Add a new key for location and give it the value "NYC".
   
-  b. Write a statement to print out all the key/value pairs in the hash
+  b. Write a statement to print out all the key/value pairs in the hash. This should *not be* just `puts my_hash` but should iterate over the structure printing each individual key and value.
 
   c. Return the name value from the hash.
 
@@ -93,19 +93,19 @@ school = {
 
   b. Add a student to the school's students' array.
 
-  c. Remove "Billy" from the students' array.
+  c. Remove "Billy" from the students' array. Create a solution that would work for any name given, then give it the name `"Billy"`.
 
   d. Add a key to every student in the students array called "semester" and assign it the value "Summer".
 
-  e. Change Ashley's subject to "being almost better than Blake"
+  e. Change Ashley's subject to "being almost better than Blake". Create a solution that would work for any teacher given, then give it the teacher `"Ashley"`.
 
-  f. Change Frank's grade from "A" to "F".
+  f. Change Frank's grade from "A" to "F". Create a solution that would work for any intial and replacement grade given, then give it the grades and `"A"` and `"F"`.
 
-  g. Return the name of the student with a "B".
+  g. Return the name of the student with a "B". Create a solution that would work for any grade given, then give it the grade `"B"`.
 
-  h. Return the subject of the instructor "Jeff".
+  h. Return the subject of the instructor "Jeff". Create a solution that would work for any instructor given, then give it the instructor `"Jeff"` and the new subject.
 
-  i. Write a statement to print out all the values in the school. ***FLAG
+  i. Write a statement to print out all the values in the school. This should *not be* just `puts my_hash` but should iterate over the structure printing each individual key and value.
 
 ###4. Methods
 
@@ -113,7 +113,7 @@ school = {
 
   a.  
    i. Create a method to return the grade of a student, given that student's name.
-   ii. Then use it to refactor your work in 3.i. 
+   ii. Then use it to refactor your work in 3.i., i.e. use your method to replace some of the iteration that was initiailly required.
 
   b. 
    i.Create a method to udpate a instructor's subject given the instructor and the new subject.
