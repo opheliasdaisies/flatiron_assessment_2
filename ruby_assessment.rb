@@ -183,3 +183,78 @@ class School
 	end
 
 end
+
+
+#6. Classes
+class Student
+	attr_accessor :name, :grade, :semester
+
+	def initialize(name, grade, semester)
+		@name = name
+		@grade = grade
+		@semester = semester
+	end
+
+end
+
+class School
+	attr_accessor :name, :location, :instructors, :students
+	attr_reader :ranking
+
+	SCHOOLS = []
+
+	def reset
+		SCHOOLS.clear
+	end
+
+	def initialize(name, location, ranking, students_array, instructors_array)
+		@name = name
+		@location = location
+		@ranking = ranking
+		@students = students_array
+		@instructors = instructors_array
+		SCHOOLS << self
+	end
+
+	def new_rank(rank)
+		@ranking = rank
+	end
+
+	def new_student(name, grade, semester)
+		students << Student.new(name, grade, semester)
+	end
+
+	def remove_student(name)
+		students.each { |student| students.delete(student) if student.name == name }
+	end
+
+	def find_students(name)
+		student_obj = ""
+		students.each do |student|
+			if student.name == name
+				student_obj = student
+			end
+		end
+		student_obj
+	end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
